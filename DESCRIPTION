@@ -1,0 +1,24 @@
+Package: mktgConjoint
+Version: 0.01
+Date: 2016-08-02
+Type: Package
+Title: An implementation of conjoint analysis for marketing decisions
+Author: Jordi López-Sintas
+Maintainer: Jordi López-Sintas <Jordi.Lopez@uab.est>
+Depends:
+    R (>= 3.3.0)
+Description: This package is an implementation of conjoint analysis for
+    marketing decisions. It estimates part worths, attributes' importance, market
+    shares and the optim profile given actual competitors.
+LazyData: TRUE
+URL: https://www.r-project.org/Licenses/GPL-2
+BugReports: https://github.com/jlopezsi/mktgConjoint
+License: GNU General Public License
+Name: GNU General Public License
+Abbrev: GPL-2
+OSI: open (https://opensource.org/licenses/gpl-license)
+FSF: free_and_GPLv3_incompatible (https://www.gnu.org/licenses/license-
+    list.html#GPLv2)
+File: share/licenses/GPL-2
+FOSS: yes
+RoxygenNote: 5.0.1
