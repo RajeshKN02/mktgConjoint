@@ -234,12 +234,20 @@ display.attributes.importance <- function(conjoint.results) {
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
   #' @description
+<<<<<<< HEAD
   #' This functions display attributes' importance using R standard plotting system
+=======
+  #' This functions displey attributes' importance using R standard plotting system
+>>>>>>> origin/master
   #' @param conjoint.results       a  list with the results
   #' @examples
   #' data(osc)
   #' conjoint.results<-importance.of.attributes(osc.ratings, osc.bundles)
+<<<<<<< HEAD
   #' display.attributes.importance(conjoint.results)
+=======
+  #' displey.attributes.importance(conjoint.results)
+>>>>>>> origin/master
 
   #################other variables in the function ###############
   # n.attributes           a variable with the number of attributes
