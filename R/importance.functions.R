@@ -132,7 +132,7 @@ importance <- function(conjoint.results, print.digits = 2) {
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
   #' @description
-  #' This functinos is called by importance.ofattributes() function.
+  #' This functinos is called by importance.of.attributes() function.
   #' This function computes the importance of attributes. It takes the result of conjoint analysis (importance.of.attributes()) a
   #' list with the data need to compute importance and print them. I adapt
   #'  code from Marketing Data Science book, chapter 1. Frist we
@@ -143,7 +143,7 @@ importance <- function(conjoint.results, print.digits = 2) {
   #' @return conjoint.results       the object returned by this function
   #' @examples
   #' #do not run
-  #' function to be called by importance.of.attributes() function
+  #' #function to be called by importance.of.attributes() function
   #'
   ############################## other variables in the function #########
   # standardize             a function to standardize data
@@ -234,20 +234,14 @@ display.attributes.importance <- function(conjoint.results) {
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
   #' @description
-<<<<<<< HEAD
   #' This functions display attributes' importance using R standard plotting system
-=======
   #' This functions displey attributes' importance using R standard plotting system
->>>>>>> origin/master
   #' @param conjoint.results       a  list with the results
   #' @examples
   #' data(osc)
-  #' conjoint.results<-importance.of.attributes(osc.ratings, osc.bundles)
-<<<<<<< HEAD
+  #' conjoint.results<-importance.of.attributes(osc$ratings, osc$bundles)
   #' display.attributes.importance(conjoint.results)
-=======
-  #' displey.attributes.importance(conjoint.results)
->>>>>>> origin/master
+  #' display.attributes.importance(conjoint.results)
 
   #################other variables in the function ###############
   # n.attributes           a variable with the number of attributes

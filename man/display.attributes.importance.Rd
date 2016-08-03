@@ -9,19 +9,13 @@ display.attributes.importance(conjoint.results)
 \item{conjoint.results}{a  list with the results}
 }
 \description{
-<<<<<<< HEAD
 This functions display attributes' importance using R standard plotting system
-=======
-This functions plots attributes' importance using R standard plotting system
->>>>>>> origin/master
+This functions displey attributes' importance using R standard plotting system
 }
 \examples{
 data(osc)
-conjoint.results<-importance.of.attributes(osc.ratings, osc.bundles)
-<<<<<<< HEAD
+conjoint.results<-importance.of.attributes(osc$ratings, osc$bundles)
 display.attributes.importance(conjoint.results)
-=======
-print.attributes.importance(conjoint.results)
->>>>>>> origin/master
+display.attributes.importance(conjoint.results)
 }
 

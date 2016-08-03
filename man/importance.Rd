@@ -14,7 +14,7 @@ importance(conjoint.results, print.digits = 2)
 conjoint.results       the object returned by this function
 }
 \description{
-This functinos is called by importance.ofattributes() function.
+This functinos is called by importance.of.attributes() function.
 This function computes the importance of attributes. It takes the result of conjoint analysis (importance.of.attributes()) a
 list with the data need to compute importance and print them. I adapt
  code from Marketing Data Science book, chapter 1. Frist we
@@ -22,7 +22,7 @@ prepare data to compute standardized part-worths
 }
 \examples{
 #do not run
-function to be called by importance.of.attributes() function
+#function to be called by importance.of.attributes() function
 
 }
 
