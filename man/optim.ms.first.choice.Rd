@@ -2,6 +2,7 @@
 % Please edit documentation in R/optim.ms.R
 \name{optim.ms.first.choice}
 \alias{optim.ms.first.choice}
+\title{optim.ms.first.choice}
 \usage{
 optim.ms.first.choice(ratings, bundles, exis.profiles, experiment)
 }

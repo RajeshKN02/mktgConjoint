@@ -2,6 +2,7 @@
 % Please edit documentation in R/ms.prediction.R
 \name{ms.us.conjoint}
 \alias{ms.us.conjoint}
+\title{ms.us.conjoint}
 \usage{
 ms.us.conjoint(profiles, ratings, bundles)
 }

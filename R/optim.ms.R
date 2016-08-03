@@ -17,6 +17,7 @@ optim.ms.first.choice <- function(ratings, bundles, exis.profiles,
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title optim.ms.first.choice
   #' @description
   #' Computes market share for actual profiles as well as for all possible profiles
   #' in order to indentify the bundle that maximazes market share given actual profiles
@@ -29,6 +30,7 @@ optim.ms.first.choice <- function(ratings, bundles, exis.profiles,
   #' @param exis.profiles           a data frame with competitiors' profiles
   #' @param experiment              a data frame with the description of all possible profiles
   #' @return optim.list             a list with with the optim profile as well as optim market share
+  #' @export
   #' @examples
   #' library(mktgConjoint)
   #' data(osc)
@@ -79,6 +81,7 @@ optim.ms.utility.share <- function(ratings, bundles, exis.profiles,
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title optim.ms.utility.share
   #' @description
   #' Computes market share for actual profiles as well as for all possible profiles
   #' in order to indentify the bundle that maximazes market share given actual profiles
@@ -91,6 +94,7 @@ optim.ms.utility.share <- function(ratings, bundles, exis.profiles,
   #' @param exis.profiles           a data frame with competitiors' profiles
   #' @param experiment              a data frame with the description of all possible profiles
   #' @return optim.list             a list with with the optim profile as well as optim market share
+  #' @export
   #' @examples
   #' library(mktgConjoint)
   #' data(osc)
@@ -145,6 +149,7 @@ optim.ms.btl <- function(ratings, bundles, exis.profiles, experiment) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title optim.ms.btl
   #' @description
   #' Computes market share for actual profiles as well as for all possible profiles
   #' in order to indentify the bundle that maximazes market share given actual profiles
@@ -157,6 +162,7 @@ optim.ms.btl <- function(ratings, bundles, exis.profiles, experiment) {
   #' @param exis.profiles           a data frame with competitiors' profiles
   #' @param experiment              a data frame with the description of all possible profiles
   #' @return optim.list             a list with with the optim profile as well as optim market share
+  #' @export
   #' @examples
   #' library(mktgConjoint)
   #' data(osc)

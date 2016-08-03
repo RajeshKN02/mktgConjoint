@@ -2,6 +2,7 @@
 % Please edit documentation in R/part.worths.R
 \name{part.worths}
 \alias{part.worths}
+\title{part.worths}
 \usage{
 part.worths(ratings, bundles)
 }

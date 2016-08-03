@@ -2,6 +2,7 @@
 % Please edit documentation in R/optim.ms.R
 \name{optim.ms.utility.share}
 \alias{optim.ms.utility.share}
+\title{optim.ms.utility.share}
 \usage{
 optim.ms.utility.share(ratings, bundles, exis.profiles, experiment)
 }

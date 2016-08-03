@@ -1,6 +1,7 @@
 ############################## importance of attributes
 
-importance.of.attributes <- function(ratings, bundles) {
+importance.of.attributes <- function(ratings, bundles, print.digits=2)
+  {
   #  Copyright 2016 Jordi L. Sintas
   #  This program is free software; you can redistribute it and/or
   #  modify it under the terms of the GNU General Public License
@@ -24,14 +25,16 @@ importance.of.attributes <- function(ratings, bundles) {
   #' rated (colums); bundles is a matrix of bundles (rows) by attributes
   #' (colums). I adapt  code from Marketing Data Science book, chapter 1.
   #' Frist we prepare data
-  #'
+  #' @title importance.of.attributes
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
+  #' @param print.digits            number of digits to be used when printing results
   #' @return conjoint.results       the object returned by this function
+  #' @export
   #' @examples
   #' data(osc)
-  #' conjoint results <- importance.of.attributes(osc$ratings, osc$bundles)
-  #'
+  #' importance.of.attributes(osc$ratings, osc$bundles)
+
   ################# other variables in the function ##################
   # clients                 number of clients that have rated the set of bundles
   # y                       the ratings of client number i
@@ -76,7 +79,7 @@ importance.of.attributes <- function(ratings, bundles) {
   # measures
   conjoint.results <- main.effects.model.fit[c("contrasts", "xlevels",
                                                "coefficients")]
-  conjoint.results
+  #conjoint.results
   conjoint.results$attributes <- names(conjoint.results$contrasts)
   # pwn<-partWorthsNorm(ratings, conjointBundles) pwnMeans<-apply(pwn, 2,
   # mean) pwnMeans
@@ -84,10 +87,10 @@ importance.of.attributes <- function(ratings, bundles) {
   pwMeans <- apply(pw, 2, mean)
   pwMeans
   conjoint.results$coefficients <- pwMeans
-  conjoint.results$coefficients
+  #conjoint.results$coefficients
   # compute and store part-worths in the conjoint.results list structure
   part.worths <- conjoint.results$xlevels
-  part.worths
+  #part.worths
 
   # list of same structure as xlevels
   end.index.for.coefficient <- 1  # intitialize skipping the intercept
@@ -107,44 +110,8 @@ importance.of.attributes <- function(ratings, bundles) {
   conjoint.results$part.worths
   class(conjoint.results)
   ###### Now we compute the importance and attach it to conjoint.results list
-  conjoint.results <- importance(conjoint.results)
-
-  return(conjoint.results)
-
-}
-
-##############################################
-
-importance <- function(conjoint.results, print.digits = 2) {
-  #  Copyright 2016 Jordi L. Sintas
-  #  This program is free software; you can redistribute it and/or
-  #  modify it under the terms of the GNU General Public License
-  #  as published by the Free Software Foundation; either version 2
-  #  of the License, or (at your option) any later version.
-  #
-  #  This program is distributed in the hope that it will be useful,
-  #  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  #  GNU General Public License for more details.
-  #
-  #  You should have received a copy of the GNU General Public License
-  #  along with this program; if not, write to the Free Software
-  #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-  #
-  #' @description
-  #' This functinos is called by importance.ofattributes() function.
-  #' This function computes the importance of attributes. It takes the result of conjoint analysis (importance.of.attributes()) a
-  #' list with the data need to compute importance and print them. I adapt
-  #'  code from Marketing Data Science book, chapter 1. Frist we
-  #' prepare data to compute standardized part-worths
-  #'
-  #' @param conjont.results         a list with the result of conjont analysis
-  #' @param print.digits            a number indicating the number of digits to be printed
-  #' @return conjoint.results       the object returned by this function
-  #' @examples
-  #' #do not run
-  #' function to be called by importance.of.attributes() function
-  #'
+  #conjoint.results <- importance(conjoint.results)
+  ############# This is the code of the old function importance(conjoint.results)
   ############################## other variables in the function #########
   # standardize             a function to standardize data
   # clients                 number of clients that have rated the set of bundles
@@ -156,7 +123,7 @@ importance <- function(conjoint.results, print.digits = 2) {
   # ratings                 a data frame with all clients' ratings
   # bundles                 a data frame with all product profiles rated by clients
   #
-    standardize <- function(x) {
+  standardize <- function(x) {
     (x - mean(x))/sd(x)
   }
   conjoint.results$standardized.part.worths <- lapply(conjoint.results$part.worths,
@@ -196,7 +163,8 @@ importance <- function(conjoint.results, print.digits = 2) {
     }
   # report conjoint measures to console use pretty.print to provide
   # nicely formated output
-  for (k in seq(along = conjoint.results$ordered.attributes)) {
+  for (k in seq(along = conjoint.results$ordered.attributes))
+    {
     cat("\n", "\n")
     cat(conjoint.results$ordered.attributes[k], "Levels: ", unlist(conjoint.results$xlevels[conjoint.results$ordered.attributes[k]]))
 
@@ -208,16 +176,22 @@ importance <- function(conjoint.results, print.digits = 2) {
 
     cat("\n", " Attribute Importance:  ")
     cat(pretty.print(unlist(conjoint.results$attribute.importance[conjoint.results$ordered.attributes[k]])))
-  }
+    }
   return(conjoint.results)
+
+  ##############This is the end od the old function importance(conjoint.results)
+  #return(conjoint.results)
+
 }
 
 ##############################################
 
 
 
+
+
 ########### plot importances #################
-display.attributes.importance <- function(conjoint.results) {
+print.importance <- function(conjoint.results) {
   #  Copyright 2016 Jordi L. Sintas
   #  This program is free software; you can redistribute it and/or
   #  modify it under the terms of the GNU General Public License
@@ -234,20 +208,16 @@ display.attributes.importance <- function(conjoint.results) {
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
   #' @description
-<<<<<<< HEAD
-  #' This functions display attributes' importance using R standard plotting system
-=======
-  #' This functions displey attributes' importance using R standard plotting system
->>>>>>> origin/master
+  #' This functions print attributes' importance using R standard plotting system
+  #' This functions print attributes' importance using R standard plotting system
+  #' @title print.attributes.importance
   #' @param conjoint.results       a  list with the results
+  #' @export
   #' @examples
   #' data(osc)
-  #' conjoint.results<-importance.of.attributes(osc.ratings, osc.bundles)
-<<<<<<< HEAD
-  #' display.attributes.importance(conjoint.results)
-=======
-  #' displey.attributes.importance(conjoint.results)
->>>>>>> origin/master
+  #' conjoint.results<-importance(osc$ratings, osc$bundles)
+  #' print.importance(conjoint.results)
+
 
   #################other variables in the function ###############
   # n.attributes           a variable with the number of attributes

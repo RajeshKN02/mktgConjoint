@@ -16,6 +16,7 @@ part.worths <- function(ratings, bundles) {
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
   ######
+  #' @title part.worths
   #' @description
   #' This function computes the partworth of attribute levels for each
   #' respondent. Uses treatment effects; ratings is a data frame of clients
@@ -23,8 +24,10 @@ part.worths <- function(ratings, bundles) {
   #' bundles (rows) by attributes (colums)
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
-   #' @return conjont.fit            the object returned by the function
+  #' @return conjont.fit            the object returned by the function
+  #' @export
   #' @examples
+  #'
   #'   data(osc)
   #'   part.worths(osc$ratings, osc$bundles)
   #

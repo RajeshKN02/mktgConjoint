@@ -2,6 +2,7 @@
 % Please edit documentation in R/optim.ms.R
 \name{optim.ms.btl}
 \alias{optim.ms.btl}
+\title{optim.ms.btl}
 \usage{
 optim.ms.btl(ratings, bundles, exis.profiles, experiment)
 }

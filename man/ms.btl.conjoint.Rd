@@ -2,6 +2,7 @@
 % Please edit documentation in R/ms.prediction.R
 \name{ms.btl.conjoint}
 \alias{ms.btl.conjoint}
+\title{ms.btl.conjoint}
 \usage{
 ms.btl.conjoint(profiles, ratings, bundles)
 }

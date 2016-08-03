@@ -16,7 +16,7 @@ utilities.of.profiles <- function(profiles, ratings, bundles) {
   #  You should have received a copy of the GNU General Public License
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-  #
+  #' @title utilities.of.profiles
   #' @description
   #'
   #' This function computes the utility of each profile (given rivals' profiles and new profiles
@@ -26,11 +26,11 @@ utilities.of.profiles <- function(profiles, ratings, bundles) {
   #' attributes (columns), ratings is a data frame of clients (rows) by bundles
   #' rated (colums), bundles is the data frame of bundles (rows) by
   #' attributes (colums) rated by clients.
-  #'
   #' @param profiles                a data frame with the description of competitors' existing product profiles
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
   #' @return utilities.profiles     a matrix with the prediction of utilities
+  #' @export
   #' @examples
   #' data(osc)
   #' #this function is called by market share function.
@@ -97,6 +97,7 @@ ms.fe.conjoint <- function(profiles, ratings, bundles) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title ms.fe.conjoint
   #' @description
   #'
   #' This function computes the market share of the product profiles
@@ -111,6 +112,7 @@ ms.fe.conjoint <- function(profiles, ratings, bundles) {
   #' @param ratings                 a data frame frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
   #' @return ms
+  #' @export
   #' @examples
   #' data(osc)
   #' ms.fe.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
@@ -151,6 +153,7 @@ ms.us.conjoint <- function(profiles, ratings, bundles) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title ms.us.conjoint
   #' @description
   #'
   #' This function computes the market share of the product profiles
@@ -164,6 +167,7 @@ ms.us.conjoint <- function(profiles, ratings, bundles) {
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
   #' @return ms
+  #' @export
   #' @examples
   #' data(osc)
   #' ms.us.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
@@ -203,6 +207,7 @@ ms.btl.conjoint <- function(profiles, ratings, bundles) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title ms.btl.conjoint
   #' @description
   #'
   #' this rule does not reports computations different to ME This function
@@ -217,6 +222,7 @@ ms.btl.conjoint <- function(profiles, ratings, bundles) {
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
   #' @return ms
+  #' @export
   #' @examples
   #' data(osc)
   #' ms.btl.conjoint(osc$market.profiles, osc$ratings, osc$bundles)

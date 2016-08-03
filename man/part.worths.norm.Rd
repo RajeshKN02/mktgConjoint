@@ -2,6 +2,7 @@
 % Please edit documentation in R/part.worths.norm.R
 \name{part.worths.norm}
 \alias{part.worths.norm}
+\title{part.worths.norm}
 \usage{
 part.worths.norm(ratings, bundles, standard = 0)
 }

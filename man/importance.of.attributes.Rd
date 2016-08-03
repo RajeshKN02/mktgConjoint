@@ -2,13 +2,16 @@
 % Please edit documentation in R/importance.functions.R
 \name{importance.of.attributes}
 \alias{importance.of.attributes}
+\title{importance.of.attributes}
 \usage{
-importance.of.attributes(ratings, bundles)
+importance.of.attributes(ratings, bundles, print.digits = 2)
 }
 \arguments{
 \item{ratings}{a data frame with all clients' ratings}
 
 \item{bundles}{a data frame with all product profiles rated by clients}
+
+\item{print.digits}{number of digits to be used when printing results}
 }
 \value{
 conjoint.results       the object returned by this function
@@ -23,7 +26,6 @@ Frist we prepare data
 }
 \examples{
 data(osc)
-conjoint results <- importance.of.attributes(osc$ratings, osc$bundles)
-
+importance.of.attributes(osc$ratings, osc$bundles)
 }
 

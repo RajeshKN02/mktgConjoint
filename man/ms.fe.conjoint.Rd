@@ -2,6 +2,7 @@
 % Please edit documentation in R/ms.prediction.R
 \name{ms.fe.conjoint}
 \alias{ms.fe.conjoint}
+\title{ms.fe.conjoint}
 \usage{
 ms.fe.conjoint(profiles, ratings, bundles)
 }

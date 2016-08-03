@@ -22,3 +22,4 @@ FSF: free_and_GPLv3_incompatible (https://www.gnu.org/licenses/license-
 File: share/licenses/GPL-2
 FOSS: yes
 RoxygenNote: 5.0.1
+Suggests: testthat

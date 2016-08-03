@@ -14,6 +14,7 @@ part.worths.norm <- function(ratings, bundles, standard = 0) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
+  #' @title part.worths.norm
   #' @description
   #'
   #'   This function computes the partworth of attribute levels for each
@@ -32,6 +33,7 @@ part.worths.norm <- function(ratings, bundles, standard = 0) {
   #' @param standard                whether we should standaridized clientes ratings. Default equal to FALSE (0)
   #' @return conjoint.fit.sum.zero     the object returned if standard=0
   #' @return conjoint.fit.sum.zero.st  the object returned if standard=1
+  #' @export
   #' @examples
   #'   data(osconjoint)
   #'   part.worths(os$ratings, os$bundles)

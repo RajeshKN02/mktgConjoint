@@ -2,6 +2,7 @@
 % Please edit documentation in R/ms.prediction.R
 \name{utilities.of.profiles}
 \alias{utilities.of.profiles}
+\title{utilities.of.profiles}
 \usage{
 utilities.of.profiles(profiles, ratings, bundles)
 }

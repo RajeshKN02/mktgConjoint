@@ -10,8 +10,7 @@
 #' market.profiles:  a data frame with as many rows as products are in the market (competitors particularly) by attributes (in columns)
 #' constrains: a data frame with some constrains to be used in the estimation of optimal products
 #' reveneu:    a data frame with attributes' variation in cost
-#'
-#' @format full:
+#' @format osc$full:
 #' \describe{
 #'   \item{Location}{factor with Location's levels: Less2Miles, W2-5Miles, and W5-10Miles}
 #'   \item{officeSupplies}{factor with OfficeSupplies' levels: VLAssortment, LAssortment, LimAssortment}
@@ -19,12 +18,12 @@
 #'  \item{Computers}{factor with Computers' levels: NoComputers, Software, and SoftwareAndComputers}
 #'  \item{Computers}{factor with Computers' levels: NoComputers, Software, and SoftwareAndComputers}
 #' }
-#' @format ratings:
+#' @format osc$ratings:
 #' \describe{
 #'   \item{Bundle1}{numeric}
+#'   ...
 #'   \item{Bundle16}{numeric}
 #' }
-#'
-#'
+#' @export
 #' @source \url{http://www.decisionpro.biz/}
 "osc"
