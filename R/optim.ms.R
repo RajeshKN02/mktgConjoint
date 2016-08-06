@@ -23,7 +23,7 @@ optim.ms.first.choice <- function(ratings, bundles, exis.profiles,
   #' in order to indentify the bundle that maximazes market share given actual profiles
   #' We use first choice rule
   #' If we combine all three functions into one function, we can use rule=1 for first choice, rule=2 for utility share, and
-  #' the rest for BTL. With a if sentence we hace combine all 3 functions
+  #' the rest for logit. With a if sentence we hace combine all 3 functions
   #' into one.
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
@@ -87,7 +87,7 @@ optim.ms.utility.share <- function(ratings, bundles, exis.profiles,
   #' in order to indentify the bundle that maximazes market share given actual profiles
   #' We use utility share rule
   #' If we combine all three functions into one function, we can use rule=1 for first choice, rule=2 for utility share, and
-  #' the rest for BTL. With a if sentence we hace combine all 3 functions
+  #' the rest for logit. With a if sentence we hace combine all 3 functions
   #' into one.
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
@@ -98,8 +98,8 @@ optim.ms.utility.share <- function(ratings, bundles, exis.profiles,
   #' @examples
   #' library(mktgConjoint)
   #' data(osc)
-  #' osc.ms.op.ut.share<-optim.ms.ut.share(osc$ratings, osc$bundles, osc$market.profiles, osc$full)
-  #' osc.ms.op.ut.share
+  #' osc.ms.op.us<-optim.ms.utility.share(osc$ratings, osc$bundles, osc$market.profiles, osc$full)
+  #' osc.ms.op.us
   #'
   ####################### other variabels in the function ##############
   # rivals                  the number of competitors
@@ -133,7 +133,7 @@ optim.ms.utility.share <- function(ratings, bundles, exis.profiles,
   return(optim.list)
 }
 
-optim.ms.btl <- function(ratings, bundles, exis.profiles, experiment) {
+optim.ms.logit <- function(ratings, bundles, exis.profiles, experiment) {
   #  Copyright 2016 Jordi L. Sintas
   #  This program is free software; you can redistribute it and/or
   #  modify it under the terms of the GNU General Public License
@@ -149,13 +149,13 @@ optim.ms.btl <- function(ratings, bundles, exis.profiles, experiment) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
-  #' @title optim.ms.btl
+  #' @title optim.ms.logit
   #' @description
   #' Computes market share for actual profiles as well as for all possible profiles
   #' in order to indentify the bundle that maximazes market share given actual profiles
   #' We use first choice rule
   #' If we combine all three functions into one function, we can use rule=1 for first choice, rule=2 for utility share, and
-  #' the rest for BTL. With a if sentence we hace combine all 3 functions
+  #' the rest for logit. With a if sentence we hace combine all 3 functions
   #' into one.
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
@@ -163,11 +163,12 @@ optim.ms.btl <- function(ratings, bundles, exis.profiles, experiment) {
   #' @param experiment              a data frame with the description of all possible profiles
   #' @return optim.list             a list with with the optim profile as well as optim market share
   #' @export
+  #' @references SAS Institute Inc., SAS*TeclmicalReport R-109, Conjoint Analysis Examples, Gary, NC: SAS Institute Inc., 1993.85 pp.
   #' @examples
   #' library(mktgConjoint)
   #' data(osc)
-  #' osc.ms.op.btl<-optim.ms.btl(osc$ratings, osc$bundles, osc$market.profiles, osc$full)
-  #' osc.ms.op.btl
+  #' osc.ms.op.logit<-optim.ms.logit(osc$ratings, osc$bundles, osc$market.profiles, osc$full)
+  #' osc.ms.op.logit
   #'
   ####################### other variabels in the function ##############
   # rivals                  the number of competitors
@@ -185,11 +186,11 @@ optim.ms.btl <- function(ratings, bundles, exis.profiles, experiment) {
 
   profiles <- rbind(exis.profiles, Optim = experiment[1, ])  #combines existing profiles with the first possible combination
   ######## rule Bradley, Terry and Luce
-  ms.full.profile <- t(ms.btl.conjoint(profiles, ratings, bundles))  #initilizes the data matrix where we store computations
+  ms.full.profile <- t(ms.logit.conjoint(profiles, ratings, bundles))  #initilizes the data matrix where we store computations
 
   for (i in 2:n.bundles) {
     profiles <- rbind(exis.profiles, Optim = experiment[i, ])  #combines existing profiles with the i-essim possible combination
-    ms.full.profile <- rbind(ms.full.profile, t(ms.btl.conjoint(profiles,
+    ms.full.profile <- rbind(ms.full.profile, t(ms.logit.conjoint(profiles,
                                                               ratings, bundles)))  #combines the computations
   }
   ms.max <- which.max(ms.full.profile[, rivals + 1])  #identify the optimum combination

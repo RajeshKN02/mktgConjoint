@@ -32,8 +32,8 @@ This function computes the partworth of attribute levels for each
   with respondent ranks
 }
 \examples{
-  data(osconjoint)
-  part.worths(os$ratings, os$bundles)
+  data(osc)
+  part.worths(osc$ratings, osc$bundles)
 }
 \author{
 Jordi L. Sintas

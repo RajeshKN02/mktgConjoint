@@ -27,8 +27,9 @@ attributes (colums) rated by clients.
 }
 \examples{
 data(osc)
+names(osc)
 #this function is called by market share function.
 osc.uop <-utilities.of.profiles(osc$market.profiles, osc$ratings, osc$bundles)
-
+head(osc.uop)
 }
 

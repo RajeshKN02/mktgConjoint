@@ -27,7 +27,8 @@ by attributes (colums)
 }
 \examples{
 data(osc)
+names(osc)
 ms.us.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
-
+class(ms.us.conjoint(osc$market.profiles, osc$ratings, osc$bundles))
 }
 

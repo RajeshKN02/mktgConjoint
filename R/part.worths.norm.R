@@ -35,8 +35,8 @@ part.worths.norm <- function(ratings, bundles, standard = 0) {
   #' @return conjoint.fit.sum.zero.st  the object returned if standard=1
   #' @export
   #' @examples
-  #'   data(osconjoint)
-  #'   part.worths(os$ratings, os$bundles)
+  #'   data(osc)
+  #'   part.worths(osc$ratings, osc$bundles)
   #' @author Jordi L. Sintas
 
   ############################# other variables in the function #########
