@@ -28,8 +28,8 @@ part.worths <- function(ratings, bundles) {
   #' @export
   #' @examples
   #'
-  #'   data(osc)
-  #'   part.worths(osc$ratings, osc$bundles)
+  #' data(osc)
+  #' part.worths(osc$ratings, osc$bundles)
   #
   ################### other variables in the function ###########
   # conjoint.fit            a data frame with the coefficients of many objects returned by lm()

@@ -33,9 +33,10 @@ utilities.of.profiles <- function(profiles, ratings, bundles) {
   #' @export
   #' @examples
   #' data(osc)
+  #' names(osc)
   #' #this function is called by market share function.
   #' osc.uop <-utilities.of.profiles(osc$market.profiles, osc$ratings, osc$bundles)
-  #'
+  #' head(osc.uop)
 ################### other variables in the function ##################
   # utilities.profiles      a data frame with the result of product profiles' utility
   # clients                 number of clients that have rated the set of bundles
@@ -115,8 +116,9 @@ ms.fe.conjoint <- function(profiles, ratings, bundles) {
   #' @export
   #' @examples
   #' data(osc)
+  #' names(osc)
   #' ms.fe.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
-  #'
+  #' class(ms.fe.conjoint(osc$market.profiles, osc$ratings, osc$bundles))
   ###################### other variables in the function ###########
   # up                      the results of the utilities.of.profiles() function
   # individual.elections    cols. identiy respondents for whech the product profiles reports the maximum utility
@@ -132,9 +134,10 @@ ms.fe.conjoint <- function(profiles, ratings, bundles) {
     ms[brand] <- length(individual.elections[individual.elections ==
                                               brand])/length(individual.elections)  # compute market share for brand j
   }
+  ms<-round(ms*100, digits=4)
   brand.names <- row.names(profiles)
   names(ms) <- brand.names
-  return(ms)
+  return(as.data.frame(ms))
 }
 
 ms.us.conjoint <- function(profiles, ratings, bundles) {
@@ -170,8 +173,9 @@ ms.us.conjoint <- function(profiles, ratings, bundles) {
   #' @export
   #' @examples
   #' data(osc)
+  #' names(osc)
   #' ms.us.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
-  #'
+  #' class(ms.us.conjoint(osc$market.profiles, osc$ratings, osc$bundles))
 
   ############################ other variables in the function #########
   # up                      the results of the utilities.of.profiles() function
@@ -185,13 +189,15 @@ ms.us.conjoint <- function(profiles, ratings, bundles) {
   profiles.prob.client <- up/sum.util.client  #compute de probability of buying each brand
   # head(profiles.prob.client) sum(profiles.prob.client[1,]) check
   # whether sum = 1
-  ms <- colMeans(profiles.prob.client)  #for each brand compute the mean across respondents
+  ms <- colMeans(profiles.prob.client)*100  #for each brand compute the mean across respondents
+  ms<-round(ms, digits=4)
   brand.names <- row.names(profiles)
   names(ms) <- brand.names
-  return(ms)
+  options(digits=3)
+  return(as.data.frame(ms))
 }
 
-ms.btl.conjoint <- function(profiles, ratings, bundles) {
+ms.logit.conjoint <- function(profiles, ratings, bundles) {
   #  Copyright 2016 Jordi L. Sintas
   #  This program is free software; you can redistribute it and/or
   #  modify it under the terms of the GNU General Public License
@@ -207,7 +213,7 @@ ms.btl.conjoint <- function(profiles, ratings, bundles) {
   #  along with this program; if not, write to the Free Software
   #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
   #
-  #' @title ms.btl.conjoint
+  #' @title ms.logit.conjoint
   #' @description
   #'
   #' this rule does not reports computations different to ME This function
@@ -225,7 +231,9 @@ ms.btl.conjoint <- function(profiles, ratings, bundles) {
   #' @export
   #' @examples
   #' data(osc)
-  #' ms.btl.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
+  #' names(osc)
+  #' ms.logit.conjoint(osc$market.profiles, osc$ratings, osc$bundles)
+  #' class(ms.logit.conjoint(osc$market.profiles, osc$ratings, osc$bundles))
   ##################### other variables in the function #############
   # up                      the results of the utilities.of.profiles() function
   # exp.up                  exp(U)
@@ -240,9 +248,11 @@ ms.btl.conjoint <- function(profiles, ratings, bundles) {
   profiles.prob.client <- exp.up/sum.exp.util.client  #compute de probability of buying each brand
   # head(profiles.prob.client) sum(profiles.prob.client[1,]) check
   # whether sum = 1
-  ms <- colMeans(profiles.prob.client)  #for each brand compute the mean across respondents
+  options(scipen=999)
+  ms <- colMeans(profiles.prob.client)*100  #for each brand compute the mean across respondents
   # for each brand compute the mean across respondents
+  ms<-round(ms, digits=4)
   brand.names <- row.names(profiles)
   names(ms) <- brand.names
-  return(ms)
+  return(as.data.frame(ms))
 }

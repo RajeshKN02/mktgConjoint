@@ -23,7 +23,7 @@ Computes market share for actual profiles as well as for all possible profiles
 in order to indentify the bundle that maximazes market share given actual profiles
 We use first choice rule
 If we combine all three functions into one function, we can use rule=1 for first choice, rule=2 for utility share, and
-the rest for BTL. With a if sentence we hace combine all 3 functions
+the rest for logit. With a if sentence we hace combine all 3 functions
 into one.
 }
 \examples{

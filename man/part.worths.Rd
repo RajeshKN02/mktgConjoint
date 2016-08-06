@@ -21,7 +21,8 @@ respondent. Uses treatment effects; ratings is a data frame of clients
 bundles (rows) by attributes (colums)
 }
 \examples{
-  data(osc)
-  part.worths(osc$ratings, osc$bundles)
+
+data(osc)
+part.worths(osc$ratings, osc$bundles)
 }
 

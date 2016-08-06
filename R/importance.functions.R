@@ -1,6 +1,6 @@
 ############################## importance of attributes
 
-importance.of.attributes <- function(ratings, bundles, print.digits=2)
+importance.of.attributes <- function(ratings, bundles, standardize=0, print.digits=2)
   {
   #  Copyright 2016 Jordi L. Sintas
   #  This program is free software; you can redistribute it and/or
@@ -28,12 +28,15 @@ importance.of.attributes <- function(ratings, bundles, print.digits=2)
   #' @title importance.of.attributes
   #' @param ratings                 a data frame with all clients' ratings
   #' @param bundles                 a data frame with all product profiles rated by clients
+  #' @param standardize              0, not standardize, 1 o other value, standardize ratings before computing importance
   #' @param print.digits            number of digits to be used when printing results
   #' @return conjoint.results       the object returned by this function
   #' @export
   #' @examples
   #' data(osc)
-  #' importance.of.attributes(osc$ratings, osc$bundles)
+  #' names(osc)
+  #' conjoint.results<-importance.of.attributes(osc$ratings, osc$bundles, 0)
+  #' conjoint.results.norm<-importance.of.attributes(osc$ratings, osc$bundles, 1)
 
   ################# other variables in the function ##################
   # clients                 number of clients that have rated the set of bundles
@@ -81,9 +84,10 @@ importance.of.attributes <- function(ratings, bundles, print.digits=2)
                                                "coefficients")]
   #conjoint.results
   conjoint.results$attributes <- names(conjoint.results$contrasts)
-  # pwn<-partWorthsNorm(ratings, conjointBundles) pwnMeans<-apply(pwn, 2,
-  # mean) pwnMeans
-  pw <- part.worths(ratings, bundles)
+  ifelse(standardize==0,
+          pw <- part.worths(ratings, bundles),
+          pw<-part.worths.norm(ratings, bundles)
+  )
   pwMeans <- apply(pw, 2, mean)
   pwMeans
   conjoint.results$coefficients <- pwMeans
@@ -191,7 +195,7 @@ importance.of.attributes <- function(ratings, bundles, print.digits=2)
 
 
 ########### plot importances #################
-print.importance <- function(conjoint.results) {
+visualize.importance <- function(conjoint.results) {
   #  Copyright 2016 Jordi L. Sintas
   #  This program is free software; you can redistribute it and/or
   #  modify it under the terms of the GNU General Public License
@@ -215,8 +219,8 @@ print.importance <- function(conjoint.results) {
   #' @export
   #' @examples
   #' data(osc)
-  #' conjoint.results<-importance(osc$ratings, osc$bundles)
-  #' print.importance(conjoint.results)
+  #' conjoint.results<-importance.of.attributes(osc$ratings, osc$bundles)
+  #' visualize.importance(conjoint.results)
 
 
   #################other variables in the function ###############

@@ -4,12 +4,15 @@
 \alias{importance.of.attributes}
 \title{importance.of.attributes}
 \usage{
-importance.of.attributes(ratings, bundles, print.digits = 2)
+importance.of.attributes(ratings, bundles, standardize = 0,
+  print.digits = 2)
 }
 \arguments{
 \item{ratings}{a data frame with all clients' ratings}
 
 \item{bundles}{a data frame with all product profiles rated by clients}
+
+\item{standardize}{0, not standardize, 1 o other value, standardize ratings before computing importance}
 
 \item{print.digits}{number of digits to be used when printing results}
 }
@@ -26,6 +29,8 @@ Frist we prepare data
 }
 \examples{
 data(osc)
-importance.of.attributes(osc$ratings, osc$bundles)
+names(osc)
+conjoint.results<-importance.of.attributes(osc$ratings, osc$bundles, 0)
+conjoint.results.norm<-importance.of.attributes(osc$ratings, osc$bundles, 1)
 }
 
