@@ -7,7 +7,10 @@ export(ms.us.conjoint)
 export(optim.ms.first.choice)
 export(optim.ms.logit)
 export(optim.ms.utility.share)
+<<<<<<< HEAD
 export(osc)
+=======
+>>>>>>> origin/master
 export(part.worths)
 export(part.worths.norm)
 export(utilities.of.profiles)

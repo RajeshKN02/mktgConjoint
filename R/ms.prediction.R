@@ -189,7 +189,11 @@ ms.us.conjoint <- function(profiles, ratings, bundles) {
   #profiles.prob.client <- up/sum.util.client  #compute de probability of buying each brand
   # head(profiles.prob.client) sum(profiles.prob.client[1,]) check
   # whether sum = 1
+<<<<<<< HEAD
   ms <- colMeans(row.profiles.clients)*100  #for each brand compute the mean across respondents
+=======
+  ms <- colMeans(profiles.prob.client)*100  #for each brand compute the mean across respondents
+>>>>>>> origin/master
   ms<-round(ms, digits=4)
   brand.names <- row.names(profiles)
   names(ms) <- brand.names
@@ -248,7 +252,11 @@ ms.logit.conjoint <- function(profiles, ratings, bundles) {
   # head(profiles.prob.client) sum(profiles.prob.client[1,]) check
   # whether sum = 1
   options(scipen=999)
+<<<<<<< HEAD
   ms <- colMeans(exp.row.profiles.clients)*100  #for each brand compute the mean across respondents
+=======
+  ms <- colMeans(profiles.prob.client)*100  #for each brand compute the mean across respondents
+>>>>>>> origin/master
   # for each brand compute the mean across respondents
   ms<-round(ms, digits=4)
   brand.names <- row.names(profiles)
