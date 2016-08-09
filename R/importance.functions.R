@@ -219,8 +219,13 @@ visualize.importance <- function(conjoint.results) {
   #' @export
   #' @examples
   #' data(osc)
+<<<<<<< HEAD
   #' conjoint.results<-importance.of.attributes(osc$ratings, osc$bundles)
   #' visualize.importance(conjoint.results)
+=======
+  #' conjoint.results<-importance(osc$ratings, osc$bundles)
+  #' print.importance(conjoint.results)
+>>>>>>> parent of 2e4b20a... Merge branch 'master' of https://github.com/jlopezsi/mktgConjoint
 
 
   #################other variables in the function ###############
